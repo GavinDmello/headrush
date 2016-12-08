@@ -1,8 +1,8 @@
 # Headrush
 
-A minimal solution to defer application starts after you have resolved your network or file dependancies.
+A minimal solution to defer `application starts` after you have resolved your network or file dependancies.
 
-If you have multiple dependancies like redis, mongo or other initial processing that needs to be done before the application starts, this comes in handy.
+If you have multiple dependancies like connecting to a database or other initial processing that needs to be done before the application starts, this will come in handy.
 
 ------------------------
 ## Installation
@@ -63,8 +63,8 @@ File 1
     ])
 
     function initialProcessing() {
-    // do some processing here
-    headRush.stun('intialProcessing')
+        // do some processing here
+        headRush.stun('intialProcessing')
     }
 
 ```
@@ -75,8 +75,8 @@ File 2
     var headRush = new HeadRush()
 
     function someMoreProcessing() {
-    // do some processing here
-    headRush.stun('someMoreProcessing')
+        // do some processing here
+        headRush.stun('someMoreProcessing')
     }
 
 ```
