@@ -1,6 +1,6 @@
 {
   "name": "headrush",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Kick start your app after resolving dependancies",
   "main": "index.js",
   "scripts": {
