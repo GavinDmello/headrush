@@ -23,7 +23,7 @@ class HeadRush extends EventEmitter {
                 this.emit('ready')
             }
         } else {
-            throw new Error('Can only stun initial events provided')
+            throw new Error('Event stunned not present in the expected events set')
         }
     }
 }
