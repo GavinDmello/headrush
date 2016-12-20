@@ -1,0 +1,106 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/gavindmello/.nvm/versions/node/v4.4.7/bin/node',
+1 verbose cli   '/Users/gavindmello/.nvm/versions/node/v4.4.7/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/gavindmello/contrib/headrush',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/gavindmello/.npm/headrush/0.4.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/gavindmello/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/Users/gavindmello/.npm/headrush/0.4.0/package.tgz',
+10 verbose tar pack   '/Users/gavindmello/contrib/headrush' ]
+11 verbose tarball /Users/gavindmello/.npm/headrush/0.4.0/package.tgz
+12 verbose folder /Users/gavindmello/contrib/headrush
+13 info prepublish headrush@0.4.0
+14 verbose addLocalTarball adding from inside cache /Users/gavindmello/.npm/headrush/0.4.0/package.tgz
+15 verbose correctMkdir /Users/gavindmello/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd headrush@0.4.0
+17 verbose afterAdd /Users/gavindmello/.npm/headrush/0.4.0/package/package.json not in flight; writing
+18 verbose correctMkdir /Users/gavindmello/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /Users/gavindmello/.npm/headrush/0.4.0/package/package.json written
+20 silly publish { name: 'headrush',
+20 silly publish   version: '0.4.0',
+20 silly publish   description: 'Kick start your app after resolving dependancies',
+20 silly publish   main: 'index.js',
+20 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+20 silly publish   keywords: [ 'boot', 'deps' ],
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+https://github.com/GavinDmello/headrush.git' },
+20 silly publish   author: { name: 'Gavin Dmello', email: 'dmellogavin5000@gmail.com' },
+20 silly publish   license: 'MIT',
+20 silly publish   readme: '# Headrush\n\nA minimal solution to defer `application starts` after you have resolved your network or file dependancies.\n\nIf you have multiple dependancies like connecting to a database or other initial processing that needs to be done before the application starts, this will come in handy.\n\n------------------------\n## Installation\n\n```\n  npm install headrush\n```\n\n---------------\n## Usage\nYou need to provide the initial events you\'re expecting , after which the ready event will be emitted. This needs to be provided once only.\nAlso,  you need to call the `stun` function once you have finished some specific processing.\n\n### Single file example\n```js\nvar HeadRush = require(\'headrush\')\nvar headRush = new HeadRush([\n    \'intialProcessing\',\n    \'redis\',\n    \'mongo\'\n])\n\n\nheadRush.on(\'ready\', function() {\n    // call the function to start your app\n    console.log(\'ready\')\n})\n\nfunction initialProcessing() {\n    // do some processing here\n    headRush.stun(\'intialProcessing\')\n}\n\nfunction connectToRedis() {\n    // After conneting to redis\n    headRush.stun(\'redis\')\n}\n\nfunction connectToMongo() {\n    // After connecting to mongo\n    headRush.stun(\'mongo\')\n}\n\ninitialProcessing()\nconnectToMongo()\nconnectToRedis()\n\n```\n\n\n### Multiple file Example\nFile 1\n```js\n    var HeadRush = require(\'headrush\')\n    var headRush = new HeadRush([\n        \'intialProcessing\',\n        \'someMoreProcessing\'\n    ])\n\n    function initialProcessing() {\n        // do some processing here\n        headRush.stun(\'intialProcessing\')\n    }\n\n```\nFile 2\n\n```js\n    var HeadRush = require(\'headrush\')\n    var headRush = new HeadRush()\n\n    function someMoreProcessing() {\n        // do some processing here\n        headRush.stun(\'someMoreProcessing\')\n    }\n\n```\n-----------------\n## License\nMIT\n\n\n',
+20 silly publish   readmeFilename: 'Readme.md',
+20 silly publish   gitHead: 'fdaa6ef1e308bb5f9ce8771dae6baa1c9a9235d9',
+20 silly publish   bugs: { url: 'https://github.com/GavinDmello/headrush/issues' },
+20 silly publish   homepage: 'https://github.com/GavinDmello/headrush#readme',
+20 silly publish   _id: 'headrush@0.4.0',
+20 silly publish   _shasum: '85e4d0e4e90765458c8370a0e9a4d353f1b63608',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name headrush
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'headrush',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'headrush',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/headrush
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /Users/gavindmello/.npm/headrush/0.4.0/package.tgz
+29 verbose request uri https://registry.npmjs.org/headrush
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 10:10:55 PM
+32 verbose request using bearer token for auth
+33 verbose request id bd3b68146008457f
+34 http request PUT https://registry.npmjs.org/headrush
+35 http 403 https://registry.npmjs.org/headrush
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Tue, 20 Dec 2016 16:40:58 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-cdg8732-CDG',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1482252057.464019,VS0,VE1011',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /Users/gavindmello/.npm/registry.npmjs.org/headrush on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.4.0." : headrush
+39 verbose stack     at makeError (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/request/request.js:200:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/Users/gavindmello/.nvm/versions/node/v4.4.7/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 verbose statusCode 403
+41 verbose pkgid headrush
+42 verbose cwd /Users/gavindmello/contrib/headrush
+43 error Darwin 16.3.0
+44 error argv "/Users/gavindmello/.nvm/versions/node/v4.4.7/bin/node" "/Users/gavindmello/.nvm/versions/node/v4.4.7/bin/npm" "publish"
+45 error node v4.4.7
+46 error npm  v2.15.8
+47 error code E403
+48 error "You cannot publish over the previously published version 0.4.0." : headrush
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
