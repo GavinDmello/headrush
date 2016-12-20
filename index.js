@@ -20,10 +20,10 @@ class HeadRush extends EventEmitter {
     }
 
     stun(event) {
-        if (events.indexOf(event) >= 0) {
+        if (events && events.indexOf(event) >= 0) {
             eventsFired[event] = true
             if (Object.keys(eventsFired).length >= events.length) {
-                eventsFired = events = null
+                instance = eventsFired = events = null
                 this.emit('ready')
             }
         } else {
