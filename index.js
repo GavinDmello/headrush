@@ -3,6 +3,7 @@
 var events = []
 var eventsFired = {}
 const EventEmitter = require('events')
+var instance = undefined
 
 class HeadRush extends EventEmitter {
     constructor(eventsProvided) {
@@ -13,6 +14,9 @@ class HeadRush extends EventEmitter {
         if (!events && !eventsProvided) {
             throw new Error('Initial events need to be present to stun')
         }
+
+        if(instance) return instance
+        instance = this
     }
 
     stun(event) {
