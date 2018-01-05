@@ -13,14 +13,14 @@ If you have multiple dependancies like connecting to a database or other initial
 
 ---------------
 ## Usage
-You need to provide the initial events you're expecting , after which the ready event will be emitted. This needs to be provided once only.
+You need to provide the initial dependencies you're expecting , after which the ready event will be emitted. This needs to be provided once only.
 Also,  you need to call the `stun` function once you have finished some specific processing.
 
 ### Single file example
 ```js
 var HeadRush = require('headrush')
 var headRush = new HeadRush({
-    events: [
+    deps: [
     'intialProcessing',
     'redis',
     'mongo'
@@ -34,17 +34,23 @@ headRush.on('ready', function() {
 
 function initialProcessing() {
     // do some processing here
-    headRush.stun('intialProcessing')
+    headRush.stun({
+        dep: 'intialProcessing'
+    })
 }
 
 function connectToRedis() {
     // After conneting to redis
-    headRush.stun('redis')
+    headRush.stun({
+        dep: 'redis'
+    })
 }
 
 function connectToMongo() {
     // After connecting to mongo
-    headRush.stun('mongo')
+    headRush.stun({
+        dep: 'mongo'
+    })
 }
 
 initialProcessing()
@@ -59,14 +65,16 @@ File 1
 ```js
     var HeadRush = require('headrush')
     var headRush = new HeadRush({
-        events: [
+        deps: [
         'intialProcessing',
         'someMoreProcessing'
     ]})
 
     function initialProcessing() {
         // do some processing here
-        headRush.stun('intialProcessing')
+        headRush.stun({
+            dep: 'intialProcessing'
+        })
     }
 
 ```
@@ -78,7 +86,9 @@ File 2
 
     function someMoreProcessing() {
         // do some processing here
-        headRush.stun('someMoreProcessing')
+        headRush.stun({
+            dep: 'someMoreProcessing'
+        })
     }
 
 ```
