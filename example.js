@@ -1,9 +1,12 @@
-var HeadRush = require('headrush')
-var headRush = new HeadRush([
-    'intialProcessing',
-    'redis',
-    'mongo'
-])
+var HeadRush = require('./index')
+
+var headRush = new HeadRush({
+    deps: [
+        'intialProcessing',
+        'redis',
+        'mongo'
+    ]
+})
 
 
 headRush.on('ready', function() {
@@ -13,17 +16,23 @@ headRush.on('ready', function() {
 
 function initialProcessing() {
     // do some processing here
-    headRush.stun('intialProcessing')
+    headRush.stun({
+        dep: 'intialProcessing'
+    })
 }
 
 function connectToRedis() {
     // After conneting to redis
-    headRush.stun('redis')
+    headRush.stun({
+        dep: 'redis'
+    })
 }
 
 function connectToMongo() {
     // After connecting to mongo
-    headRush.stun('mongo')
+    headRush.stun({
+        dep:'mongo'
+    })
 }
 
 initialProcessing()

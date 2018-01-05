@@ -19,11 +19,12 @@ Also,  you need to call the `stun` function once you have finished some specific
 ### Single file example
 ```js
 var HeadRush = require('headrush')
-var headRush = new HeadRush([
+var headRush = new HeadRush({
+    events: [
     'intialProcessing',
     'redis',
     'mongo'
-])
+]})
 
 
 headRush.on('ready', function() {
@@ -57,10 +58,11 @@ connectToRedis()
 File 1
 ```js
     var HeadRush = require('headrush')
-    var headRush = new HeadRush([
+    var headRush = new HeadRush({
+        events: [
         'intialProcessing',
         'someMoreProcessing'
-    ])
+    ]})
 
     function initialProcessing() {
         // do some processing here

@@ -1,10 +1,10 @@
 {
   "name": "headrush",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Kick start your app after resolving dependancies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape tests/*.js | faucet"
   },
   "keywords": [
     "boot",
@@ -15,5 +15,9 @@
     "url": "https://github.com/GavinDmello/headrush.git"
   },
   "author": "Gavin Dmello <dmellogavin5000@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^4.8.0"
+  }
 }
