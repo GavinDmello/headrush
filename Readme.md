@@ -1,4 +1,4 @@
-# Headrush&nbsp;&nbsp;[![Build Status](https://travis-ci.org/rahulbhanushali/headrush.svg?branch=master)](https://travis-ci.org/rahulbhanushali/headrush)
+# Headrush&nbsp;&nbsp;[![Build Status](https://travis-ci.org/rahulbhanushali/headrush.svg?branch=master)](https://travis-ci.org/rahulbhanushali/headrush) &nbsp;&nbsp; [![Coverage Status](https://coveralls.io/repos/github/rahulbhanushali/headrush/badge.svg?branch=master)](https://coveralls.io/github/rahulbhanushali/headrush?branch=master)
 
 A minimal solution to defer `application starts` after you have resolved your network or file dependancies.
 
