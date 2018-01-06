@@ -4,8 +4,11 @@
   "description": "Kick start your app after resolving dependancies",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
     "test": "tape tests/*.js | faucet",
-    "ci": "istanbul cover tape tests/*.js"
+    "ci": "npm run lint; npm run coverage",
+    "coverage": "istanbul cover tape tests/*.js",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "keywords": [
     "boot",
@@ -18,9 +21,11 @@
   "author": "Gavin Dmello <dmellogavin5000@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "faucet": "0.0.1",
     "istanbul": "^0.4.5",
     "pre-commit": "^1.2.2",
+    "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
   "pre-commit": [

@@ -1,38 +1,37 @@
 var HeadRush = require('./index')
 
 var headRush = new HeadRush({
-    deps: [
-        'intialProcessing',
-        'redis',
-        'mongo'
-    ]
+  deps: [
+    'intialProcessing',
+    'redis',
+    'mongo'
+  ]
 })
 
-
-headRush.on('ready', function() {
+headRush.on('ready', function () {
     // call the function to start your app
-    console.log('ready')
+  console.log('ready')
 })
 
-function initialProcessing() {
+function initialProcessing () {
     // do some processing here
-    headRush.stun({
-        dep: 'intialProcessing'
-    })
+  headRush.stun({
+    dep: 'intialProcessing'
+  })
 }
 
-function connectToRedis() {
+function connectToRedis () {
     // After conneting to redis
-    headRush.stun({
-        dep: 'redis'
-    })
+  headRush.stun({
+    dep: 'redis'
+  })
 }
 
-function connectToMongo() {
+function connectToMongo () {
     // After connecting to mongo
-    headRush.stun({
-        dep:'mongo'
-    })
+  headRush.stun({
+    dep: 'mongo'
+  })
 }
 
 initialProcessing()
