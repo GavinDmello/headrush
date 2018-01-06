@@ -72,14 +72,6 @@ class HeadRush extends EventEmitter {
         var dep = options.dep
         var namespace = options.namespace || DEFAULT_NAMESPACE
 
-        if (!NS[namespace].deps) {
-            NS[namespace].context.emit('error', {
-                code: 3,
-                message: 'dependency to be stunned is not initialized'
-            })
-            return
-        }
-
         if (NS[namespace].deps.indexOf(dep) >= 0) {
             NS[namespace].depsMet[dep] = true
 
