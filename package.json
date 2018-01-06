@@ -4,7 +4,8 @@
   "description": "Kick start your app after resolving dependancies",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/*.js | faucet"
+    "test": "tape tests/*.js | faucet",
+    "ci": "istanbul cover tape tests/*.js"
   },
   "keywords": [
     "boot",
@@ -18,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "faucet": "0.0.1",
+    "istanbul": "^0.4.5",
     "pre-commit": "^1.2.2",
     "tape": "^4.8.0"
   },

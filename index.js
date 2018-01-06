@@ -34,20 +34,13 @@ class HeadRush extends EventEmitter {
             currentNS = DEFAULT_NAMESPACE
         }
 
-        if (!NS[currentNS]) {
+        if (!NS[currentNS] && !(options.deps && options.deps.length)) {
+            throw new Error('Initial dependencies need to be present to stun')
+        } else {
             NS[currentNS] = {
-                deps: [],
+                deps: options.deps,
                 depsMet: {}
             }
-        }
-
-        if (!options.deps && !NS[currentNS].deps.length) {
-            throw new Error('Initial dependencies need to be present to stun')
-            return
-        }
-
-        if (NS[currentNS] && !NS[currentNS].deps.length) {
-            NS[currentNS].deps = options.deps
         }
 
         if (!timeout) {
@@ -81,6 +74,7 @@ class HeadRush extends EventEmitter {
                 })
 
                 clearTimeout(NS[namespace].timeoutFunction)
+                delete NS[namespace]
             }
         } else {
             NS[namespace].context.emit('error', {
