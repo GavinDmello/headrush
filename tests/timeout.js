@@ -18,7 +18,7 @@ test('should emit error when dependencies not stunned within specified timeout',
         })
 
         headRush.on('error', function (error) {
-            t.equal(error.code, 2)
+            t.equal(error.code, 1)
         })
 
         headRush.on('ready', function () {

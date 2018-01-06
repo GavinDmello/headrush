@@ -60,7 +60,7 @@ class HeadRush extends EventEmitter {
         var that = this
         NS[currentNS].timeoutFunction = setTimeout(function () {
             that.emit('error', {
-                code: 2,
+                code: 1,
                 message: 'Not all dependencies stunned within specified timeout of: ' + timeout
             })
         }, timeout)
@@ -74,7 +74,7 @@ class HeadRush extends EventEmitter {
 
         if (!NS[namespace].deps) {
             NS[namespace].context.emit('error', {
-                code: 4,
+                code: 3,
                 message: 'dependency to be stunned is not initialized'
             })
             return
@@ -92,7 +92,7 @@ class HeadRush extends EventEmitter {
             }
         } else {
             NS[namespace].context.emit('error', {
-                code: 3,
+                code: 2,
                 message: 'Dependency stunned not present in the expected dependencies set'
             })
         }

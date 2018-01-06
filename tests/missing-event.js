@@ -16,7 +16,7 @@ test('should throw error when dependency stunned is not in initial list of depen
         })
 
         headRush.once('error', function (error) {
-            t.equal(error.code, 3, error.message)
+            t.equal(error.code, 2, error.message)
 
             //just to handle the timeout error
             headRush.once('error', function () {})
