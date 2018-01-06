@@ -1,4 +1,4 @@
-# Headrush
+# Headrush&nbsp;&nbsp;[![Build Status](https://travis-ci.org/rahulbhanushali/headrush.svg?branch=master)](https://travis-ci.org/rahulbhanushali/headrush) &nbsp;&nbsp; [![Coverage Status](https://coveralls.io/repos/github/rahulbhanushali/headrush/badge.svg?branch=master)](https://coveralls.io/github/rahulbhanushali/headrush?branch=master)
 
 A minimal solution to defer `application starts` after you have resolved your network or file dependancies.
 
@@ -13,17 +13,18 @@ If you have multiple dependancies like connecting to a database or other initial
 
 ---------------
 ## Usage
-You need to provide the initial events you're expecting , after which the ready event will be emitted. This needs to be provided once only.
+You need to provide the initial dependencies you're expecting , after which the ready event will be emitted. This needs to be provided once only.
 Also,  you need to call the `stun` function once you have finished some specific processing.
 
 ### Single file example
 ```js
 var HeadRush = require('headrush')
-var headRush = new HeadRush([
+var headRush = new HeadRush({
+    deps: [
     'intialProcessing',
     'redis',
     'mongo'
-])
+]})
 
 
 headRush.on('ready', function() {
@@ -33,17 +34,23 @@ headRush.on('ready', function() {
 
 function initialProcessing() {
     // do some processing here
-    headRush.stun('intialProcessing')
+    headRush.stun({
+        dep: 'intialProcessing'
+    })
 }
 
 function connectToRedis() {
     // After conneting to redis
-    headRush.stun('redis')
+    headRush.stun({
+        dep: 'redis'
+    })
 }
 
 function connectToMongo() {
     // After connecting to mongo
-    headRush.stun('mongo')
+    headRush.stun({
+        dep: 'mongo'
+    })
 }
 
 initialProcessing()
@@ -57,14 +64,17 @@ connectToRedis()
 File 1
 ```js
     var HeadRush = require('headrush')
-    var headRush = new HeadRush([
+    var headRush = new HeadRush({
+        deps: [
         'intialProcessing',
         'someMoreProcessing'
-    ])
+    ]})
 
     function initialProcessing() {
         // do some processing here
-        headRush.stun('intialProcessing')
+        headRush.stun({
+            dep: 'intialProcessing'
+        })
     }
 
 ```
@@ -76,7 +86,9 @@ File 2
 
     function someMoreProcessing() {
         // do some processing here
-        headRush.stun('someMoreProcessing')
+        headRush.stun({
+            dep: 'someMoreProcessing'
+        })
     }
 
 ```

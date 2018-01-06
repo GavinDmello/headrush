@@ -1,10 +1,14 @@
 {
   "name": "headrush",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Kick start your app after resolving dependancies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard",
+    "test": "tape tests/*.js | faucet",
+    "ci": "npm run lint; npm run coverage",
+    "coverage": "istanbul cover tape tests/*.js",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "keywords": [
     "boot",
@@ -15,5 +19,16 @@
     "url": "https://github.com/GavinDmello/headrush.git"
   },
   "author": "Gavin Dmello <dmellogavin5000@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "faucet": "0.0.1",
+    "istanbul": "^0.4.5",
+    "pre-commit": "^1.2.2",
+    "standard": "^10.0.3",
+    "tape": "^4.8.0"
+  },
+  "pre-commit": [
+    "test"
+  ]
 }
