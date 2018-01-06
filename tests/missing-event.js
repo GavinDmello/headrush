@@ -5,7 +5,7 @@ test('should throw error when dependency stunned is not in initial list of depen
     function (t) {
       t.plan(1)
 
-      let headRushNS = 'missing-event'
+      var headRushNS = 'missing-event'
 
         // list of dependencies
       var headRush = new HeadRush({

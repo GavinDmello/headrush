@@ -1,4 +1,4 @@
-# Headrush
+# Headrush&nbsp;&nbsp;[![Build Status](https://travis-ci.org/rahulbhanushali/headrush.svg?branch=master)](https://travis-ci.org/rahulbhanushali/headrush)
 
 A minimal solution to defer `application starts` after you have resolved your network or file dependancies.
 

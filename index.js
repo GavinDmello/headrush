@@ -1,12 +1,12 @@
 'use strict'
 
-const EventEmitter = require('events')
+var EventEmitter = require('events')
 
-const DEFAULT_NAMESPACE = 'app'
-const DEFAULT_TIMEOUT = 2000
+var DEFAULT_NAMESPACE = 'app'
+var DEFAULT_TIMEOUT = 2000
 
 // object containing all namespaces
-let NS = {}
+var NS = {}
 
 /**
  * Main class to handle all your dependencies

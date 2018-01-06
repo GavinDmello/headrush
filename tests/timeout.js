@@ -5,7 +5,7 @@ test('should emit error when dependencies not stunned within specified timeout',
     function (t) {
       t.plan(1)
 
-      let headRushNS = 'timeout'
+      var headRushNS = 'timeout'
 
         // list of dependencies
       var headRush = new HeadRush({
