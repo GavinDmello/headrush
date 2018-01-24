@@ -40,7 +40,7 @@ function initialProcessing() {
 }
 
 function connectToRedis() {
-    // After conneting to redis
+    // After connecting to redis
     headRush.stun({
         dep: 'redis'
     })
