@@ -1,8 +1,8 @@
 # Headrush&nbsp;&nbsp;[![Build Status](https://travis-ci.org/rahulbhanushali/headrush.svg?branch=master)](https://travis-ci.org/rahulbhanushali/headrush) &nbsp;&nbsp; [![Coverage Status](https://coveralls.io/repos/github/rahulbhanushali/headrush/badge.svg?branch=master)](https://coveralls.io/github/rahulbhanushali/headrush?branch=master)
 
-A minimal solution to defer `application starts` after you have resolved your network or file dependancies.
+A minimal solution to defer `application starts` after you have resolved your network or file dependencies.
 
-If you have multiple dependancies like connecting to a database or other initial processing that needs to be done before the application starts, this will come in handy.
+If you have multiple dependencies like connecting to a database or other initial processing that needs to be done before the application starts, this will come in handy.
 
 ------------------------
 ## Installation
@@ -40,7 +40,7 @@ function initialProcessing() {
 }
 
 function connectToRedis() {
-    // After conneting to redis
+    // After connecting to redis
     headRush.stun({
         dep: 'redis'
     })
